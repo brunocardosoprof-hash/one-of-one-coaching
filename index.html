@@ -130,6 +130,37 @@ section{padding:72px 0}
 .rv-in.on{opacity:1;transform:none}
 @media(max-width:780px){.fb1{left:-6px;top:12%}.fb2{right:-6px}.fb3{display:none}.fb{padding:8px 11px}.fb b{font-size:18px}.pair .bdg{font-size:24px}.trio figure:nth-child(-n+2)::after{display:none}}
 @media(prefers-reduced-motion:reduce){.fb{animation:none}.rv-in{opacity:1;transform:none;transition:none}}
+/* swiss 1% protocol */
+.proto{position:relative;overflow:hidden;background:radial-gradient(1200px 600px at 75% 30%,#13284a 0%,#0E1726 55%,#0a101c 100%);color:#fff;padding:96px 0}
+.p1{position:absolute;right:-3vw;top:40px;font-weight:900;font-size:clamp(260px,42vw,620px);line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px rgba(77,163,255,.18);pointer-events:none;user-select:none}
+.proto .wrap{position:relative}
+.ptop{max-width:760px}
+.pchip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:980px;padding:8px 16px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:22px}
+.proto h2{font-size:clamp(38px,5.6vw,66px);line-height:1.04;letter-spacing:-2px}
+.strike{position:relative;color:#8a94a8;white-space:nowrap;display:inline-block}
+.strike::after{content:"";position:absolute;left:-2%;right:-2%;top:54%;height:6px;background:#ff3b30;border-radius:4px;transform:rotate(-3deg)}
+.glow{color:#4da3ff;text-shadow:0 0 40px rgba(0,122,255,.55)}
+.psub{color:#c3cad8;font-size:19px;line-height:1.6;margin:22px 0 0;max-width:620px}
+.pgrid{display:grid;grid-template-columns:minmax(0,.9fr) auto minmax(0,1.1fr);gap:22px;align-items:center;margin-top:56px}
+.p99,.p1c{border-radius:24px;padding:30px}
+.p99{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.p1c{background:linear-gradient(160deg,#0b5fd6,#0a3f99);box-shadow:0 30px 80px -20px rgba(0,122,255,.6),inset 0 1px 0 rgba(255,255,255,.25);transform:scale(1.03)}
+.ph b{display:block;font-size:30px;letter-spacing:-1px}
+.ph span{font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;opacity:.7}
+.p99 ul{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:14px}
+.p99 li{display:flex;gap:12px;align-items:flex-start;color:#8a94a8;font-size:17px;text-decoration:line-through;text-decoration-color:rgba(255,59,48,.7);text-decoration-thickness:2px}
+.p99 li::before{content:"✕";flex:none;width:24px;height:24px;border-radius:50%;background:rgba(255,59,48,.15);color:#ff6b61;display:grid;place-items:center;font-size:12px;font-weight:800;text-decoration:none}
+.pvs{width:56px;height:56px;border-radius:50%;background:#fff;color:#0E1726;display:grid;place-items:center;font-weight:900;font-size:16px;box-shadow:0 0 0 8px rgba(255,255,255,.08)}
+.p1c ol{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:16px}
+.p1c li{display:flex;gap:14px;align-items:flex-start}
+.p1c li i{flex:none;font-style:normal;font-weight:900;font-size:15px;width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.16);display:grid;place-items:center}
+.p1c li b{display:block;font-size:18px}
+.p1c li span{font-size:15px;color:rgba(255,255,255,.82);line-height:1.5}
+.pcta{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:52px;text-align:center}
+.pcta .btn{background:#fff;color:#0E1726;box-shadow:0 0 0 6px rgba(255,255,255,.08),0 20px 40px -10px rgba(0,122,255,.6)}
+.pcta .btn:hover{background:#e9f2ff}
+.pcta span{color:#8a94a8;font-size:14px}
+@media(max-width:860px){.pgrid{grid-template-columns:minmax(0,1fr)}.pvs{margin:-6px auto}.p1c{transform:none}.proto{padding:72px 0}.p1{top:12%;transform:none;right:-12vw}}
 /* trustpilot pill */
 .tppill{display:inline-flex;align-items:center;gap:12px;background:#fff;border-radius:980px;padding:10px 20px;box-shadow:var(--sh-s);text-decoration:none;font-size:15px;font-weight:600;flex-wrap:wrap;justify-content:center}
 .tpl{display:inline-flex;align-items:center;gap:5px;font-weight:700}
@@ -297,14 +328,38 @@ footer p{margin:6px 0}
   <div class="center wrap"><a class="btn" href="#apply">→ Réserver mon appel gratuit</a></div>
 </section>
 
-<!-- 3. DOULEURS -->
-<section class="pain">
-  <div class="wrap narrow center">
-    <h2>Tu te reconnais ?</h2>
-    <p class="sub">Tu fais des efforts, et pourtant le miroir ne te renvoie pas le corps que tu veux.</p>
-    <div class="plist" id="pains" style="text-align:left"></div>
-    <div class="verdict">Ce n'est <em>pas une question de discipline.</em><br>Il te manque simplement le bon système.</div>
-    <a class="btn" href="#apply">→ Réserver mon appel gratuit</a>
+<!-- 3. THE SWISS 1% PROTOCOL -->
+<section class="proto">
+  <div class="p1" aria-hidden="true">1%</div>
+  <div class="wrap">
+    <div class="ptop">
+      <span class="pchip">🇨🇭 The Swiss 1% Protocol</span>
+      <h2>Arrête de faire comme <span class="strike">tout le monde</span>.<br><span class="glow">Rejoins le 1 %.</span></h2>
+      <p class="psub">Tu manges « healthy », tu t'entraînes, tu recommences chaque lundi… et le miroir ne bouge pas. Ce n'est pas toi le problème. C'est la méthode.</p>
+    </div>
+    <div class="pgrid">
+      <div class="p99">
+        <div class="ph"><b>Les 99 %</b><span>ce qui t'a fait échouer</span></div>
+        <ul>
+          <li>Suivre le régime à la mode du moment</li>
+          <li>Compter sur la motivation du lundi</li>
+          <li>S'affamer, puis craquer le week-end</li>
+          <li>Faire du cardio pendant des heures</li>
+          <li>Reprendre tout dès que ça s'arrête</li>
+        </ul>
+      </div>
+      <div class="pvs" aria-hidden="true">VS</div>
+      <div class="p1c">
+        <div class="ph"><b>Le 1 %</b><span>The Swiss 1% Protocol</span></div>
+        <ol>
+          <li><i>01</i><div><b>Précision suisse</b><span>Un plan calculé pour ton corps, ton métabolisme et ton agenda.</span></div></li>
+          <li><i>02</i><div><b>Zéro privation</b><span>Tu manges ce que tu aimes, en mieux. Pas d'aliments interdits.</span></div></li>
+          <li><i>03</i><div><b>Suivi 1:1 au quotidien</b><span>Je corrige le tir avant que tu dérapes. Tu n'es jamais seul.</span></div></li>
+          <li><i>04</i><div><b>Résultat verrouillé</b><span>Des habitudes qui restent, pour ne plus jamais reprendre.</span></div></li>
+        </ol>
+      </div>
+    </div>
+    <div class="pcta"><a class="btn" href="#apply">→ Je veux entrer dans le 1 %</a><span>Places limitées · appel gratuit et sans engagement</span></div>
   </div>
 </section>
 
@@ -461,7 +516,7 @@ const card=t=>`<div class="tcard"><div class="pair"><span class="lb a">AVANT</sp
 const loop=[...T];
 document.getElementById('track').innerHTML=[...loop,...loop].map(card).join('');
 
-document.getElementById('pains').innerHTML=[["🍽️","Tu manges sainement, mais tu ne perds pas de poids."],["😕","Tu t'entraînes régulièrement, mais tu ne vois aucun résultat."],["🔄","Tu connais l'effet yo-yo par expérience."],["🥗","Tu as déjà testé plusieurs régimes, mais rien n'a tenu sur la durée."],["📉","Ta motivation s'écroule après 3–4 semaines."]].map(p=>`<div class="pitem"><span>${p[0]}</span>${p[1]}</div>`).join('');
+if(document.getElementById('pains'))document.getElementById('pains').innerHTML=[["🍽️","Tu manges sainement, mais tu ne perds pas de poids."],["😕","Tu t'entraînes régulièrement, mais tu ne vois aucun résultat."],["🔄","Tu connais l'effet yo-yo par expérience."],["🥗","Tu as déjà testé plusieurs régimes, mais rien n'a tenu sur la durée."],["📉","Ta motivation s'écroule après 3–4 semaines."]].map(p=>`<div class="pitem"><span>${p[0]}</span>${p[1]}</div>`).join('');
 
 document.getElementById('proc').innerHTML=[["🔍","Analyse et objectifs","On regarde ensemble où tu en es : physiquement, côté emploi du temps et mentalement. Puis on fixe des objectifs clairs et réalistes."],["🍎","Plan nutrition individuel","Un plan qui s'adapte à toi et à ton quotidien, selon tes besoins en calories et en nutriments. Sans faim, sans low carb, sans grosses privations."],["🏋️","Plan d'entraînement individuel","Adapté à ton niveau, à tes objectifs et au temps que tu as. Avec les meilleurs exercices pour un résultat optimal."],["🤝","Suivi personnel","Je te motive, je contrôle tes progrès et j'ajuste en continu. On échange chaque jour par chat et on a des appels 1:1 réguliers."]].map(s=>`<div class="pc"><div class="ic">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join('');
 
