@@ -475,7 +475,7 @@ footer p{margin:6px 0}
 <footer>
   <a class="logo" href="#"><img class="one" src="img/logo-round.png" alt="Logo ONE OF ONE"><span style="text-align:left"><b>ONE OF ONE</b><small>COACHING</small></span></a>
   <p><a href="https://www.instagram.com/nutritionybruno/" style="color:#a1a1a6;text-decoration:none">@nutritionybruno</a></p>
-  <nav><a href="#mentions">Mentions légales</a><a href="#confidentialite">Confidentialité</a></nav>
+  <nav><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></nav>
   <p>© 2026 ONE OF ONE. Tous droits réservés.</p>
   <p style="font-size:12px;color:#6e6e73">Le coaching 1:1 s'adresse exclusivement aux personnes de 21 ans et plus.</p>
 </footer>
@@ -495,7 +495,7 @@ footer p{margin:6px 0}
   </div>
 </div>
 
-<div class="cookie" id="cookie"><p>Ce site utilise des cookies pour t'offrir la meilleure expérience. En continuant, tu acceptes notre <a href="#confidentialite">politique de confidentialité</a>.</p><button class="cb" id="cNo">Refuser</button><button class="cb y" id="cYes">Accepter</button></div>
+<div class="cookie" id="cookie"><p>Ce site n'utilise pas de cookies publicitaires. Il garde seulement ton choix en mémoire dans ton navigateur. En savoir plus : <a href="confidentialite.html">politique de confidentialité</a>.</p><button class="cb" id="cNo">Refuser</button><button class="cb y" id="cYes">Accepter</button></div>
 
 <script>
 {
@@ -546,7 +546,7 @@ function render(){
     stage.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{d[s.k]=b.textContent;i++;render()});$('next').style.display='none';return}
   $('next').style.display='';
   if(s.k=='nom')stage.innerHTML=`<label class="q" for="p">${s.q}</label><input id="p" type="text" placeholder="Prénom" autocomplete="given-name" value="${esc(d.prenom)}"><input id="n" type="text" placeholder="Nom" autocomplete="family-name" value="${esc(d.nomf)}">`;
-  else if(s.k=='contact')stage.innerHTML=`<label class="q">${s.q}</label><input type="email" id="email" placeholder="E-mail" autocomplete="email" value="${esc(d.email)}"><input type="tel" id="tel" placeholder="Téléphone (WhatsApp)" autocomplete="tel" value="${esc(d.tel)}"><label class="chk"><input type="checkbox" id="ok"><span>J'accepte que mes données soient utilisées pour me recontacter au sujet du coaching, selon la politique de confidentialité.</span></label>`;
+  else if(s.k=='contact')stage.innerHTML=`<label class="q">${s.q}</label><input type="email" id="email" placeholder="E-mail" autocomplete="email" value="${esc(d.email)}"><input type="tel" id="tel" placeholder="Téléphone (WhatsApp)" autocomplete="tel" value="${esc(d.tel)}"><label class="chk"><input type="checkbox" id="ok"><span>J'accepte que mes données soient utilisées pour me recontacter au sujet du coaching, selon la <a href="confidentialite.html" target="_blank" style="color:var(--blue)">politique de confidentialité</a>.</span></label>`;
   else stage.innerHTML=`<label class="q" for="in">${s.q}</label><input id="in" type="${s.t}" placeholder="${s.ph}" value="${esc(d[s.k])}">`;
   const f=stage.querySelector('input');if(f)setTimeout(()=>f.focus(),60);
 }
