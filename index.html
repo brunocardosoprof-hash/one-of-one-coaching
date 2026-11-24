@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ONE OF ONE · Coaching</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: clair, premium, rassurant — calqué sur l'UX/UI de paulsports.de
+   IDEA: page Apple-like comme paulsports.de : fond crème, cartes blanches, bleu iOS
+   PICTURE: photo coach arrondie + avant/après côte à côte
+   COLOUR and TYPE: crème #FAF7F2, encre #1D1D1F, bleu #007AFF, nuit #0E1726 (codes exacts de paulsports.de) ; SF Pro / Inter 700, tracking serré
+   LAYOUT: même ordre de sections que Paul, tout mène au formulaire #apply */
+:root{color-scheme:light;--white:#fff;--cream:#FAF7F2;--cream2:#F0EBE3;--blue:#007AFF;--blue-l:#E8F4FD;--blue-d:#0055CC;--text:#1D1D1F;--mid:#3D3D3F;--soft:#6e6e73;--border:#E5E5EA;--sh-s:0 2px 12px rgba(0,0,0,.06);--sh-m:0 8px 40px rgba(0,0,0,.10);--sh-l:0 24px 64px rgba(0,0,0,.12);--r-s:12px;--r-m:20px;--r-l:32px;--ease:.4s cubic-bezier(.25,.46,.45,.94);--green:#00b67a}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--text);font:16px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,"Helvetica Neue",Arial,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:700;text-wrap:balance}
+h1{font-size:clamp(44px,6.2vw,76px);line-height:1.08;letter-spacing:-2px}
+h2{font-size:clamp(32px,4.4vw,48px);line-height:1.12;letter-spacing:-1px}
+h3{font-size:22px;letter-spacing:-.4px;line-height:1.2}
+.blue{color:var(--blue)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.narrow{max-width:900px}
+section{padding:72px 0}
+.center{text-align:center}
+.sub{color:var(--soft);font-size:19px;margin:14px auto 0;max-width:560px}
+.eyebrow{color:var(--blue);font-weight:700;font-size:15px;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;font-size:19px;padding:20px 44px;border-radius:980px;box-shadow:0 4px 20px rgba(0,122,255,.3);transition:transform var(--ease),background var(--ease);border:0;cursor:pointer;font-family:inherit}
+.btn:hover{background:var(--blue-d);transform:translateY(-2px)}
+.btn:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #8cc2ff;outline-offset:3px}
+.spots{display:block;margin-top:12px;font-size:14px;color:var(--soft)}
+.spots i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ff3b30;margin-right:6px;vertical-align:middle;font-style:normal}
+.spots b{color:var(--text)}
+/* hero */
+.hero{padding:56px 0 16px}
+.logo{display:inline-flex;align-items:center;gap:12px;margin-bottom:56px;text-decoration:none}
+.logo .one{width:56px;height:56px;border-radius:50%;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.logo b{display:block;font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:28px;letter-spacing:.5px;line-height:1}
+.logo small{display:block;font-weight:600;font-size:11px;letter-spacing:5px;color:var(--mid);margin-top:3px}
+.hgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center}
+.hero p.lead{font-size:22px;line-height:1.6;color:var(--mid);max-width:470px;margin:22px 0 34px}
+.coach{position:relative;border-radius:var(--r-l);overflow:hidden;aspect-ratio:5/6;box-shadow:var(--sh-l);background:#ddd}
+.coach img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.coach::after{content:"";position:absolute;inset:55% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.coach .name{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:#fff;font-weight:700;font-size:28px;z-index:1}
+.igpill{position:absolute;top:14px;left:14px;z-index:1;display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:980px;padding:6px 12px 6px 6px;font-size:13px;font-weight:600;color:#c13584;text-decoration:none;box-shadow:var(--sh-s)}
+.igpill span.ic{width:26px;height:26px;border-radius:8px;background:linear-gradient(45deg,#f9a03f,#e1306c,#833ab4);display:grid;place-items:center}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:40px;padding:22px 0;text-align:center}
+.stats b{display:block;font-size:34px;letter-spacing:-1px}
+.stats span{font-size:14px;color:var(--soft)}
+.stats .g{color:var(--green)}
+/* media band */
+.media{padding:30px 0 6px;text-align:center}
+.media small{display:block;color:var(--soft);font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px}
+.logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(28px,6vw,72px)}
+.lg{white-space:nowrap;color:#2b2b2e;opacity:.8}
+.lg.rts{font:800 26px/1 Arial,sans-serif;background:#2b2b2e;color:#fff;padding:5px 12px;border-radius:5px;letter-spacing:2px;opacity:.85}
+.lg.arc{font:700 28px/1 Georgia,serif}
+.lg.vm{font:800 24px/1 Arial,sans-serif}.lg.vm b{font-size:34px}
+/* authority */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border);border-radius:980px;padding:7px 14px 7px 10px;font-size:14px;font-weight:600;box-shadow:var(--sh-s);white-space:nowrap}
+.chip .d{width:8px;height:8px;border-radius:50%;background:#ff3b30;box-shadow:0 0 0 3px rgba(255,59,48,.18)}
+.coach .role{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:#fff;font-size:14px;font-weight:500;z-index:1;opacity:.92}
+.coach .name{bottom:42px!important}
+.auth{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:40px}
+.ac{background:#fff;border-radius:var(--r-m);box-shadow:var(--sh-m);padding:30px;display:flex;gap:20px;align-items:flex-start;text-align:left}
+.ac .big{flex:none;width:72px;height:72px;border-radius:18px;display:grid;place-items:center;font-size:34px}
+.ac.tv .big{background:#1D1D1F;color:#fff;font:800 22px/1 Arial,sans-serif;letter-spacing:2px}
+.ac.dip .big{background:var(--blue-l)}
+.ac small{display:block;color:var(--blue);font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.ac h3{margin-bottom:8px}
+.ac p{margin:0;color:var(--mid);font-size:15px;line-height:1.6}
+@media(max-width:780px){.auth{grid-template-columns:minmax(0,1fr)}.chips{justify-content:center}.ac{padding:22px}}
+/* manifesto */
+.mani{padding:24px 0 8px}
+.mcard{max-width:900px;margin:0 auto;background:#fff;border-radius:var(--r-l);box-shadow:var(--sh-m);padding:clamp(28px,5vw,56px);position:relative;overflow:hidden}
+.mcard::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--blue)}
+.mtag{display:inline-flex;align-items:center;gap:8px;background:var(--blue-l);color:var(--blue);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;border-radius:980px;padding:6px 14px;margin-bottom:18px}
+.mcard h2{margin-bottom:22px}
+.mcard p{font-size:18px;line-height:1.7;color:var(--mid);margin:0 0 16px}
+.mcard p b{color:var(--text)}
+.mrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:28px 0 24px}
+.mrow div{background:var(--cream);border-radius:var(--r-s);padding:16px;text-align:center}
+.mrow b{display:block;font-size:28px;letter-spacing:-1px;color:var(--blue)}
+.mrow span{font-size:13px;color:var(--soft)}
+.msign{display:flex;align-items:center;gap:14px;border-top:1px solid var(--border);padding-top:20px;margin-top:8px}
+.msign img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:center 20%}
+.msign b{display:block}.msign span{font-size:14px;color:var(--soft)}
+@media(max-width:560px){.mrow{gap:8px}.mrow div{padding:12px 6px}.mrow b{font-size:20px}.mrow span{font-size:11px;display:block;line-height:1.3}.mcard p{font-size:16px}}
+/* trustpilot pill */
+.tppill{display:inline-flex;align-items:center;gap:12px;background:#fff;border-radius:980px;padding:10px 20px;box-shadow:var(--sh-s);text-decoration:none;font-size:15px;font-weight:600;flex-wrap:wrap;justify-content:center}
+.tpl{display:inline-flex;align-items:center;gap:5px;font-weight:700}
+.tpl::before{content:"★";color:var(--green);font-size:19px}
+.st{display:inline-flex;gap:2px}.st i{width:22px;height:22px;background:var(--green);color:#fff;display:grid;place-items:center;font-style:normal;font-size:15px}
+/* transformations */
+.carousel{overflow:hidden;margin-top:36px;padding:8px 0 20px}
+.track{display:flex;gap:20px;width:max-content;animation:scroll 45s linear infinite}
+.carousel:hover .track{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.tcard{width:min(360px,82vw);background:#fff;border-radius:var(--r-m);box-shadow:var(--sh-s);overflow:hidden}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:#fff}
+.pair img{aspect-ratio:3/4;object-fit:cover;width:100%}
+.kg{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;text-align:center;padding:12px 10px 4px;font-weight:700;font-size:17px}
+.kg .to{color:var(--blue)}.kg .ar{color:var(--blue)}
+.tname{text-align:center;font-weight:700;padding:6px 0 4px}
+.dur{display:table;margin:2px auto 18px;background:var(--cream);border-radius:980px;padding:3px 12px;font-size:11px;font-weight:700;letter-spacing:1px;color:var(--soft);text-transform:uppercase}
+/* pain */
+.pain{background:#0E1726;color:#fff}
+.pain .sub{color:#c9cdd6}
+.plist{display:grid;gap:12px;margin:38px 0 22px}
+.pitem{display:flex;align-items:center;gap:16px;background:linear-gradient(180deg,#18233a,#141d31);border:1px solid #26314a;border-radius:var(--r-s);padding:16px 20px;font-weight:600;font-size:18px}
+.pitem span{flex:none;width:40px;height:40px;border-radius:10px;background:#26314a;display:grid;place-items:center;font-size:20px}
+.verdict{background:linear-gradient(180deg,#0b3a7a,#0a2a5a);border:1px solid #1f6fe0;border-radius:var(--r-s);padding:26px;text-align:center;font-weight:700;font-size:20px;line-height:1.5;box-shadow:0 0 40px rgba(0,122,255,.3);margin-bottom:36px}
+.verdict em{font-style:normal;color:#4da3ff}
+/* story */
+.quote{font-style:italic;font-weight:800;font-size:clamp(28px,3.4vw,40px);line-height:1.25;letter-spacing:-.8px;max-width:760px;margin:0 auto}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:44px 0}
+.trio figure{margin:0;position:relative;border-radius:var(--r-m);overflow:hidden;box-shadow:var(--sh-s)}
+.trio img{aspect-ratio:3/4;object-fit:cover;width:100%}
+.trio figcaption{position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,.92);border-radius:980px;padding:4px 12px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.trio figure:last-child figcaption{background:var(--blue);color:#fff}
+.textcard{background:#fff;border-radius:var(--r-m);box-shadow:var(--sh-s);padding:44px;font-size:17px;line-height:1.75;color:var(--mid);max-width:900px;margin:0 auto}
+.textcard p{margin:0 0 14px}.textcard p:last-child{margin:0}
+.textcard b{color:var(--text)}
+.creds{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:24px}
+.cred{background:#fff;border:1px solid var(--border);border-radius:980px;padding:8px 16px;font-size:14px;font-weight:600}
+/* process */
+.proc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#fff;border-radius:var(--r-l);box-shadow:var(--sh-m);overflow:hidden;margin-top:44px}
+.pc{padding:32px 26px;border-right:1px solid var(--border);transition:box-shadow var(--ease)}
+.pc:last-child{border-right:0}
+.pc:hover{box-shadow:inset 0 0 0 1.5px var(--blue)}
+.pc .ic{width:48px;height:48px;border-radius:12px;background:var(--blue-l);display:grid;place-items:center;font-size:22px;margin-bottom:20px}
+.pc p{color:var(--mid);font-size:15px;line-height:1.6;margin:12px 0 0}
+.app{margin-top:32px;background:linear-gradient(135deg,#eef5fd,#e4effc);border-radius:var(--r-l);padding:56px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:center}
+.app ul{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:12px;color:var(--mid)}
+.app li{display:flex;align-items:center;gap:12px}
+.app li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;font-size:13px;font-weight:800;display:grid;place-items:center}
+.phones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:center}
+.phones img{border-radius:26px;border:5px solid #1d1d1f;box-shadow:var(--sh-l)}
+.phones img:nth-child(2){transform:translateY(-24px)}
+/* packs */
+.packs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:40px;text-align:left}
+.pack{background:#fff;border-radius:var(--r-m);box-shadow:var(--sh-s);padding:32px;display:flex;flex-direction:column;border:1.5px solid transparent}
+.pack.best{border-color:var(--blue)}
+.badge{align-self:flex-start;background:var(--blue-l);color:var(--blue);font-weight:700;font-size:12px;border-radius:980px;padding:5px 12px;margin-bottom:14px;letter-spacing:.5px}
+.pack .pr{color:var(--soft);font-size:15px;margin:6px 0 16px}
+.pack ul{padding-left:20px;margin:0 0 24px;color:var(--mid);line-height:1.8;flex:1}
+.pack .btn{font-size:17px;padding:16px 28px}
+/* howto */
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:44px}
+.hc{background:#fff;border:1px solid var(--border);border-radius:var(--r-m);padding:28px 24px 36px}
+.hc .n{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:700;font-size:15px;margin-bottom:20px}
+.hc p{color:var(--mid);font-size:15px;line-height:1.6;margin:10px 0 0}
+/* reviews */
+.revs{display:flex;gap:18px;overflow-x:auto;padding:8px 24px 24px;margin-top:28px;scroll-snap-type:x mandatory;justify-content:center;flex-wrap:wrap}
+.rv{flex:0 1 250px;background:#fff;border:1px solid var(--border);border-radius:var(--r-s);padding:20px;display:flex;flex-direction:column;text-align:left;scroll-snap-align:start}
+.rv .st i{width:18px;height:18px;font-size:12px}
+.rv h4{margin:14px 0 6px;font-size:16px}
+.rv p{color:var(--mid);font-size:15px;line-height:1.55;margin:0 0 16px;flex:1}
+.rv .who{border-top:1px solid var(--border);padding-top:12px;font-size:13px;font-weight:600}
+.rv a{display:block;color:var(--green);font-size:13px;font-weight:600;text-decoration:none;margin-top:4px}
+/* faq */
+.faq{max-width:760px;margin:40px auto 0;display:grid;gap:8px}
+details{background:#fff;border:1px solid var(--border);border-radius:var(--r-s)}
+summary{cursor:pointer;list-style:none;padding:20px 22px;font-weight:600;font-size:17px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";flex:none;width:22px;height:22px;border-radius:50%;background:var(--blue-l) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M2 4l3 3 3-3' fill='none' stroke='%23007AFF' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") center no-repeat;transition:transform var(--ease)}
+details[open] summary::after{transform:rotate(180deg)}
+details p{margin:0;padding:0 22px 20px;color:var(--mid);line-height:1.65}
+/* final + footer */
+.final{background:#1D1D1F;color:#fff;text-align:center}
+.final h2{font-size:clamp(34px,4.6vw,52px)}
+.final .btn{background:#fff;color:var(--text);box-shadow:0 4px 20px rgba(255,255,255,.15);margin-top:30px}
+.final .btn:hover{background:#eee}
+.final .blue{color:var(--blue)}.final .spots{color:#a1a1a6}.final .spots b{color:#fff}
+footer{background:#1D1D1F;color:#a1a1a6;text-align:center;padding:40px 24px 48px;border-top:1px solid #2c2c2e;font-size:13px}
+footer .logo{margin:0 0 14px;color:#fff}footer .logo .one{width:44px;height:44px;box-shadow:0 0 0 1px #3a3a3c}footer .logo b{font-size:22px}footer .logo small{color:#a1a1a6;font-size:11px}
+footer nav{display:flex;gap:22px;justify-content:center;margin:14px 0;font-size:15px}
+footer nav a{color:#fff;text-decoration:none}
+footer p{margin:6px 0}
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;place-items:center;padding:16px;z-index:50}
+.modal.open{display:grid}
+.box{background:#fff;border-radius:24px;width:min(540px,100%);padding:36px 34px 32px;position:relative;box-shadow:var(--sh-l);max-height:92vh;overflow:auto}
+.x{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:0;background:var(--cream);font-size:20px;cursor:pointer;color:var(--text)}
+.bar{height:4px;background:var(--border);border-radius:9px;margin-right:48px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--blue);transition:width var(--ease)}
+.step-l{color:var(--blue);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin:14px 0 22px}
+.box label.q{display:block;font-weight:700;font-size:24px;letter-spacing:-.4px;margin-bottom:18px}
+.box input[type=text],.box input[type=email],.box input[type=tel],.box input[type=number]{width:100%;height:52px;font:16px inherit;font-family:inherit;padding:0 16px;border-radius:var(--r-s);border:1.5px solid var(--border);background:#fff;color:var(--text);margin-bottom:12px;transition:border-color .2s}
+.box input:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 4px rgba(0,122,255,.12)}
+.opt{display:block;width:100%;text-align:left;min-height:52px;padding:14px 16px;margin-bottom:10px;border-radius:var(--r-s);border:1.5px solid var(--border);background:#fff;color:var(--text);font:500 16px inherit;font-family:inherit;cursor:pointer;transition:border-color .2s,background .2s}
+.opt:hover{border-color:var(--blue)}.opt.on{border-color:var(--blue);background:var(--blue-l)}
+.chk{display:flex;gap:10px;font-size:13px;color:var(--soft);margin:6px 0 4px;align-items:flex-start;line-height:1.5}.chk input{width:18px;height:18px;flex:none;accent-color:#007AFF;margin-top:1px}
+.err{color:#ff3b30;font-size:14px;min-height:22px;margin:4px 0}
+.box .btn{width:100%;font-size:17px;padding:16px}
+.backb{display:block;margin:12px auto 0;background:none;border:0;color:var(--soft);font:15px inherit;font-family:inherit;cursor:pointer;padding:8px}
+.hp{position:absolute;left:-9999px}
+.box p.t{color:var(--mid);line-height:1.6;margin:0 0 22px}
+.cookie{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);width:min(760px,calc(100% - 32px));background:#fff;border-radius:var(--r-m);box-shadow:var(--sh-l);padding:20px 26px;display:none;gap:16px;align-items:center;z-index:40;font-size:14px;color:var(--mid)}
+.cookie.show{display:flex}.cookie p{flex:1;margin:0;line-height:1.5}.cookie a{color:var(--blue)}
+.cb{border-radius:980px;padding:10px 20px;font:600 14px inherit;font-family:inherit;cursor:pointer;border:1px solid var(--border);background:#fff;color:var(--text);white-space:nowrap}
+.cb.y{background:var(--blue);border-color:var(--blue);color:#fff}
+@media(max-width:900px){.proc{grid-template-columns:repeat(2,minmax(0,1fr))}.pc:nth-child(2){border-right:0}.pc:nth-child(-n+2){border-bottom:1px solid var(--border)}.app{grid-template-columns:minmax(0,1fr);padding:36px 24px}}
+@media(max-width:780px){.hgrid{grid-template-columns:minmax(0,1fr)}.coach{max-width:420px;width:100%;margin:0 auto;order:-1}.logo{margin-bottom:28px}.hero{text-align:center}.hero p.lead{margin-inline:auto;font-size:19px}.how,.packs{grid-template-columns:minmax(0,1fr)}.trio{gap:8px}.textcard{padding:28px 22px}}
+@media(max-width:560px){section{padding:56px 0}.btn{width:100%;padding:18px 24px;font-size:17px}.proc{grid-template-columns:minmax(0,1fr)}.pc{border-right:0!important;border-bottom:1px solid var(--border)}.stats b{font-size:26px}.stats span{font-size:12px}.cookie{flex-wrap:wrap;padding:18px}.cookie p{flex:1 1 100%}.cb{flex:1}.pitem{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.track{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="wrap">
+    <a class="logo" href="#"><img class="one" src="img/logo-round.png" alt="Logo ONE OF ONE"><span><b>ONE OF ONE</b><small>COACHING</small></span></a>
+    <div class="hgrid">
+      <div>
+        <div class="chips"><span class="chip"><span class="d"></span>Vu à la TV · RTS</span><span class="chip">🎓 Nutritionniste diplômé en Suisse</span></div>
+        <h1>En 16 semaines<br><span class="blue">vers ton corps de rêve</span></h1>
+        <p class="lead">De 120 kg à des abdos : je l'ai vécu. Aujourd'hui nutritionniste diplômé, je t'amène physiquement et mentalement dans la meilleure forme de ta vie.</p>
+        <a class="btn" href="#apply">→ Réserver mon appel gratuit</a>
+        <span class="spots"><i></i>Plus que <b>4</b> places disponibles en décembre</span>
+      </div>
+      <div class="coach">
+        <a class="igpill" href="https://www.instagram.com/nutritionybruno/"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></span>@nutritionybruno</a>
+        <img src="img/hero.jpg" alt="Coach Bruno">
+        <div class="name">Coach Bruno</div><div class="role">Nutritionniste diplômé · Vu sur RTS</div>
+      </div>
+    </div>
+    <div class="stats">
+      <div><b>85+</b><span>Suisses accompagnés</span></div>
+      <div><b>−40 kg</b><span>ma propre transformation</span></div>
+      <div><b>5<span class="g">★</span></b><span>avis sur Trustpilot ↗</span></div>
+    </div>
+    <div class="auth">
+      <div class="ac tv"><div class="big">RTS</div><div><small>Vu à la télévision</small><h3>Mon histoire racontée sur la RTS</h3><p>Ma transformation de 120 kg à des abdos a été présentée dans l'émission <b>Infrarouge</b> de la RTS, puis reprise par ArcInfo, Le Nouvelliste et 20 minutes.</p></div></div>
+      <div class="ac dip"><div class="big">🎓</div><div><small>Diplômé en Suisse</small><h3>Nutritionniste diplômé</h3><p>Diplôme de nutrition obtenu à la <b>TCMA à Genève</b>. Ton plan repose sur la science de la nutrition, pas sur des tendances ou des régimes à la mode.</p></div></div>
+    </div>
+    <div class="media">
+      <small>Vu dans les médias suisses</small>
+      <div class="logos"><span class="lg rts">RTS</span><span class="lg arc">ArcInfo</span><span class="lg arc" style="font-size:24px">Le Nouvelliste</span><span class="lg vm"><b>20</b> minutes</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. TRANSFORMATIONS -->
+<section style="padding-top:40px">
+  <div class="wrap center">
+    <a class="tppill" href="https://ch.trustpilot.com/review/one-of-one.site"><span class="tpl">Trustpilot</span><span class="st"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span><span>100 % d'avis 5 étoiles ↗</span></a>
+    <h2 style="margin-top:28px">Transformations de mes clients</h2>
+  </div>
+  <div class="carousel"><div class="track" id="track"></div></div>
+  <div class="center wrap"><a class="btn" href="#apply">→ Réserver mon appel gratuit</a></div>
+</section>
+
+<!-- 3. DOULEURS -->
+<section class="pain">
+  <div class="wrap narrow center">
+    <h2>Tu te reconnais ?</h2>
+    <p class="sub">Tu fais des efforts, et pourtant le miroir ne te renvoie pas le corps que tu veux.</p>
+    <div class="plist" id="pains" style="text-align:left"></div>
+    <div class="verdict">Ce n'est <em>pas une question de discipline.</em><br>Il te manque simplement le bon système.</div>
+    <a class="btn" href="#apply">→ Réserver mon appel gratuit</a>
+  </div>
+</section>
+
+<!-- MANIFESTE -->
+<section class="mani">
+  <div class="wrap">
+    <div class="mcard">
+      <span class="mtag">À lire avant de réserver</span>
+      <h2>Je ne suis pas un coach <span class="blue">comme les autres.</span></h2>
+      <p>La plupart des coachs n'ont jamais eu de vrai problème de poids. Ils te donnent un plan qu'ils n'ont jamais eu besoin de suivre.</p>
+      <p><b>Moi, j'ai été de l'autre côté.</b> J'ai été l'ado obèse qu'on charriait, celui qui évitait les miroirs et les photos à la plage. J'ai essayé, abandonné, recommencé… jusqu'au jour où j'ai trouvé un système qui marche.</p>
+      <div class="mrow">
+        <div><b>−40 kg</b><span>perdus naturellement</span></div>
+        <div><b>85+</b><span>Suisses accompagnés</span></div>
+        <div><b>TCMA</b><span>nutritionniste diplômé à Genève</span></div>
+      </div>
+      <p><b>Perdre ces 40 kg a changé ma vie</b> : ma santé, ma confiance, mon énergie, ma façon de me regarder. Et aujourd'hui, je vois la même chose arriver chez mes coachés, semaine après semaine. Ce n'est pas qu'une question de kilos : c'est une nouvelle vie qui commence.</p>
+      <p>Je sais exactement ce que tu ressens, parce que je l'ai vécu. Et c'est pour ça que je sais comment t'en sortir.</p>
+      <div class="msign"><img src="img/hero.jpg" alt="Coach Bruno"><div><b>Bruno, fondateur de ONE OF ONE</b><span>Nutritionniste diplômé · Vu sur RTS</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. MON HISTOIRE -->
+<section>
+  <div class="wrap center">
+    <div class="eyebrow">Mon histoire</div>
+    <p class="quote">«&nbsp;J'ai été l'obèse qui évitait les miroirs.&nbsp;»</p>
+    <div class="trio">
+      <figure><img src="img/story1.jpg" alt="Bruno avant"><figcaption>Avant</figcaption></figure>
+      <figure><img src="img/avant.jpg" alt="Bruno pendant"><figcaption>Pendant</figcaption></figure>
+      <figure><img src="img/apres.jpg" alt="Bruno aujourd'hui"><figcaption>Aujourd'hui</figcaption></figure>
+    </div>
+    <div class="textcard" style="text-align:left">
+      <p>Je m'appelle Bruno, je suis <b>nutritionniste diplômé (TCMA Genève)</b> et coach en ligne. Le sport et la nutrition sont aujourd'hui au centre de ma vie. Mais ça n'a pas toujours été le cas.</p>
+      <p>J'ai frôlé les <b>120 kg</b>. J'ai tout essayé : régimes, salle de sport, motivation du lundi. Rien ne tenait. Je me sentais mal dans mon corps et dans ma tête.</p>
+      <p>Le déclic n'a pas été un régime de plus, mais un <b>système clair</b> : manger mieux sans me priver, m'entraîner intelligemment, et tenir dans la durée. Résultat : <b>−40 kg</b>, des abdos, et une confiance en moi que je n'avais jamais eue. Mon parcours a même été raconté à la <b>RTS</b>.</p>
+      <p>Aujourd'hui, j'utilise exactement ce système pour aider les autres à perdre du gras, se muscler et se sentir enfin bien. J'ai déjà accompagné <b>plus de 85 Suisses</b> vers leur meilleure version.</p>
+    </div>
+    <div class="creds"><span class="cred">🎓 Nutritionniste diplômé · TCMA Genève</span><span class="cred">📺 Vu à la TV · RTS Infrarouge</span><span class="cred">📰 ArcInfo · Le Nouvelliste · 20 minutes</span><span class="cred">💪 −40 kg</span></div>
+  </div>
+</section>
+
+<!-- 5. MÉTHODE + APP -->
+<section style="padding-top:24px">
+  <div class="wrap">
+    <h2 class="center">Comment on atteint tes objectifs</h2>
+    <div class="proc" id="proc"></div>
+    <div class="app">
+      <div>
+        <h2>Tout dans une app</h2>
+        <p style="color:var(--mid);font-size:18px;margin:12px 0 0">Ton coaching, clair et réuni au même endroit.</p>
+        <ul id="feat"></ul>
+      </div>
+      <div class="phones">
+        <img src="img/app-training.jpg" alt="Séance d'entraînement dans l'app">
+        <img src="img/app-nutrition.jpg" alt="Suivi nutrition dans l'app">
+        <img src="img/app-repas.jpg" alt="Recettes dans l'app">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FORMULES -->
+<section style="padding-top:24px">
+  <div class="wrap narrow center">
+    <h2>Plusieurs formules, un seul objectif</h2>
+    <p class="sub">Chacun part d'un point différent. On choisit ensemble la formule idéale pendant ton appel gratuit.</p>
+    <div class="packs">
+      <div class="pack"><h3>Formule Essentielle</h3><p class="pr">Accompagnement mensuel · prix lors de l'appel</p><ul><li>Plan nutrition personnalisé</li><li>Programme d'entraînement</li><li>Accès à l'app + recettes</li><li>Check-in de suivi</li></ul><a class="btn" href="#apply">En parler</a></div>
+      <div class="pack best"><span class="badge">LE PLUS CHOISI</span><h3>Méthode One of One · 16 semaines</h3><p class="pr">Coaching 1:1 complet · prix lors de l'appel</p><ul><li>Analyse complète et objectifs</li><li>Nutrition + training sur mesure</li><li>Chat direct avec moi au quotidien</li><li>Appels vidéo 1:1 réguliers</li><li>Check-ins hebdo et ajustements</li></ul><a class="btn" href="#apply">→ Réserver mon appel</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. COMMENT DÉMARRER -->
+<section>
+  <div class="wrap narrow center">
+    <h2>Comment démarrer</h2>
+    <p class="sub">3 étapes vers ton corps de rêve.</p>
+    <div class="how" style="text-align:left">
+      <div class="hc"><div class="n">1</div><h3>Remplis ta candidature</h3><p>Dis-moi où tu en es, quel est ton objectif et comment je peux t'aider. Ça prend 2 minutes.</p></div>
+      <div class="hc"><div class="n">2</div><h3>Choisis ton créneau</h3><p>Juste après, tu vois mon agenda et tu choisis le moment qui te convient. Tes infos sont déjà remplies.</p></div>
+      <div class="hc"><div class="n">3</div><h3>Appel gratuit</h3><p>On analyse tes plus gros blocages, je réponds à tes questions et je te donne un plan pour atteindre ton objectif, étape par étape.</p></div>
+    </div>
+    <div style="margin-top:40px"><a class="btn" href="#apply">→ Commencer ma candidature</a></div>
+  </div>
+</section>
+
+<!-- 8. AVIS -->
+<section style="padding-top:24px">
+  <div class="center wrap"><a class="tppill" href="https://ch.trustpilot.com/review/one-of-one.site"><span class="tpl">Trustpilot</span><span class="st"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span><span>4 avis · tous 5 étoiles ↗</span></a></div>
+  <div class="revs" id="revs"></div>
+</section>
+
+<!-- 9. FAQ -->
+<section style="padding-top:24px">
+  <div class="wrap center">
+    <h2>Questions fréquentes</h2>
+    <div class="faq" id="faq" style="text-align:left"></div>
+  </div>
+</section>
+
+<!-- 10. CTA FINAL -->
+<section class="final">
+  <div class="wrap">
+    <h2>Ton corps t'attend.<br><span class="blue">Commence aujourd'hui.</span></h2>
+    <a class="btn" href="#apply">→ Réserver mon appel gratuit</a>
+    <span class="spots"><i></i>Plus que <b>4</b> places disponibles en décembre</span>
+  </div>
+</section>
+<footer>
+  <a class="logo" href="#"><img class="one" src="img/logo-round.png" alt="Logo ONE OF ONE"><span style="text-align:left"><b>ONE OF ONE</b><small>COACHING</small></span></a>
+  <p><a href="https://www.instagram.com/nutritionybruno/" style="color:#a1a1a6;text-decoration:none">@nutritionybruno</a></p>
+  <nav><a href="#mentions">Mentions légales</a><a href="#confidentialite">Confidentialité</a></nav>
+  <p>© 2026 ONE OF ONE. Tous droits réservés.</p>
+  <p style="font-size:12px;color:#6e6e73">Le coaching 1:1 s'adresse exclusivement aux personnes de 21 ans et plus.</p>
+</footer>
+
+<!-- FORMULAIRE -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Candidature">
+  <div class="box">
+    <button class="x" id="close" aria-label="Fermer">×</button>
+    <div class="bar"><i id="prog"></i></div>
+    <div class="step-l" id="stepl"></div>
+    <form id="f" novalidate>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" placeholder="Laisse ce champ vide">
+      <div id="stage"></div>
+      <div class="err" id="err"></div>
+      <div id="nav"><button type="submit" class="btn" id="next">Continuer</button><button type="button" class="backb" id="back">← Retour</button></div>
+    </form>
+  </div>
+</div>
+
+<div class="cookie" id="cookie"><p>Ce site utilise des cookies pour t'offrir la meilleure expérience. En continuant, tu acceptes notre <a href="#confidentialite">politique de confidentialité</a>.</p><button class="cb" id="cNo">Refuser</button><button class="cb y" id="cYes">Accepter</button></div>
+
+<script>
+{
+const CAL='https://calendly.com/bc-trainer/appel-de-selection-coaching';
+const IG='https://www.instagram.com/nutritionybruno/';
+/* Transformations : ajoute une ligne par client (photos dans img/) */
+const T=[
+ {k:'stephane',to:'−22 kg',name:'Stéphane',dur:'6 mois'},
+ {k:'sophie',to:'−21,3 kg',name:'Sophie',dur:'12 mois'},
+ {k:'johann',to:'−17 kg',name:'Johann',dur:'6 mois'},
+ {k:'alexis',to:'−16 kg',name:'Alexis',dur:'5 mois'},
+ {k:'pierre',to:'−16 kg',name:'Pierre',dur:'5 mois'},
+ {k:'nanje',to:'−15 kg',name:'Nanje',dur:'5 mois'},
+ {k:'lucie',to:'−14 kg',name:'Lucie',dur:'6 mois'},
+ {k:'marco',to:'−11 kg',name:'Marco',dur:'4 mois'},
+ {k:'severine',to:'−11 kg',name:'Séverine',dur:'11 mois'}].map(t=>({...t,a:`img/${t.k}-avant.jpg`,b:`img/${t.k}-apres.jpg`,from:'Avant'}));
+const card=t=>`<div class="tcard"><div class="pair"><img src="${t.a}" alt="${t.name} avant" loading="lazy"><img src="${t.b}" alt="${t.name} après" loading="lazy"></div><div class="kg"><span>${t.from||'Avant'}</span><span class="ar">→</span><span class="to">${t.to}</span></div><div class="tname">${t.name}</div><span class="dur">${t.dur}</span></div>`;
+const loop=[...T];
+document.getElementById('track').innerHTML=[...loop,...loop].map(card).join('');
+
+document.getElementById('pains').innerHTML=[["🍽️","Tu manges sainement, mais tu ne perds pas de poids."],["😕","Tu t'entraînes régulièrement, mais tu ne vois aucun résultat."],["🔄","Tu connais l'effet yo-yo par expérience."],["🥗","Tu as déjà testé plusieurs régimes, mais rien n'a tenu sur la durée."],["📉","Ta motivation s'écroule après 3–4 semaines."]].map(p=>`<div class="pitem"><span>${p[0]}</span>${p[1]}</div>`).join('');
+
+document.getElementById('proc').innerHTML=[["🔍","Analyse et objectifs","On regarde ensemble où tu en es : physiquement, côté emploi du temps et mentalement. Puis on fixe des objectifs clairs et réalistes."],["🍎","Plan nutrition individuel","Un plan qui s'adapte à toi et à ton quotidien, selon tes besoins en calories et en nutriments. Sans faim, sans low carb, sans grosses privations."],["🏋️","Plan d'entraînement individuel","Adapté à ton niveau, à tes objectifs et au temps que tu as. Avec les meilleurs exercices pour un résultat optimal."],["🤝","Suivi personnel","Je te motive, je contrôle tes progrès et j'ajuste en continu. On échange chaque jour par chat et on a des appels 1:1 réguliers."]].map(s=>`<div class="pc"><div class="ic">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join('');
+
+document.getElementById('feat').innerHTML=["Ton programme d'entraînement complet","Plan nutritionnel et recettes","Messages directs avec Bruno","Suivi de tes progrès","Vidéos d'explication de chaque exercice","Check-ins hebdomadaires et ajustements"].map(f=>`<li>${f}</li>`).join('');
+
+/* Avis réels Trustpilot : titre d'origine + résumé (colle le texte complet si tu veux) */
+const R=[["Grace","Accompagnement au top!","Présent tout au long du suivi et très encourageant. Recommandé pour une transformation physique et alimentaire."],["Ewa Kula","Trés clair, simple et efficace","3 mois bien au-delà d'un simple coaching : écoutée, comprise, avec professionnalisme, rigueur et authenticité."],["Marco Oliveira","Une expérience que je recommande sans hésitations","Objectifs atteints en 4 mois au lieu des 6 prévus. Un coaching ciblé pour des résultats durables."],["Matteo","Bruno","Attentif et présent lors des appels. Les premiers résultats ont boosté sa motivation."]];
+document.getElementById('revs').innerHTML=R.map(r=>`<div class="rv"><span class="st"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span><h4>${r[1]}</h4><p>${r[2]}</p><div class="who">${r[0]}<a href="https://ch.trustpilot.com/review/one-of-one.site">Lire sur Trustpilot ↗</a></div></div>`).join('');
+
+document.getElementById('faq').innerHTML=[["Comment être sûr que ça va marcher ?","On le vérifie ensemble pendant l'appel gratuit : si je ne peux pas t'aider, je te le dis. Ensuite, ton engagement fait la différence, et je suis là chaque semaine pour le garder au top."],["Combien ça coûte ?","Il existe plusieurs formules. Le prix dépend de ton objectif et du niveau d'accompagnement : on en parle pendant l'appel, sans engagement."],["À partir de quel âge puis-je postuler ?","Le coaching 1:1 s'adresse aux personnes de 21 ans et plus."],["J'ai un travail, une famille et peu de temps, c'est possible ?","Oui. Tout est construit autour de ton quotidien : boulot, famille, déplacements."],["Ça marche aussi sans abonnement à la salle ?","Oui. Ton entraînement est adapté à la salle ou à la maison."],["Dois-je renoncer à mes plats préférés ou suivre un régime strict ?","Non. Pas de régime extrême ni d'aliments interdits : tu apprends à manger mieux, pour de bon."],["En combien de temps vais-je voir des résultats ?","Ça dépend de ton point de départ et de ta régularité. La plupart des gens sentent la différence dès les premières semaines."]].map(q=>`<details><summary>${q[0]}</summary><p>${q[1]}</p></details>`).join('');
+
+/* Formulaire 6 étapes */
+const S=[
+ {k:'nom',q:'Comment tu t\'appelles ?'},
+ {k:'age',q:'Quel âge as-tu ?',t:'number',ph:'Ton âge'},
+ {k:'metier',q:'Que fais-tu dans la vie ?',t:'text',ph:'Ton métier'},
+ {k:'objectif',q:'Quel est ton objectif principal ?',o:['Perdre du poids','Perdre du ventre','Me remettre en forme','Prendre du muscle']},
+ {k:'blocage',q:'Qu\'est-ce qui te bloque le plus ?',o:['Je craque sur la nourriture','Je manque de motivation','Je ne sais pas quoi manger','Je manque de temps','L\'effet yo-yo']},
+ {k:'contact',q:'Où puis-je te joindre ?'}];
+const d={};let i=0;
+const $=id=>document.getElementById(id),modal=$('modal'),stage=$('stage'),err=$('err');
+const esc=v=>String(v||'').replace(/"/g,'&quot;');
+function render(){
+  const s=S[i];$('prog').style.width=((i+1)/S.length*100)+'%';$('stepl').textContent=`Étape ${i+1} sur ${S.length}`;err.textContent='';
+  $('nav').style.display='block';$('back').style.display=i?'block':'none';$('next').textContent=i==S.length-1?'Envoyer':'Continuer';
+  if(s.o){stage.innerHTML=`<label class="q">${s.q}</label>`+s.o.map(o=>`<button type="button" class="opt${d[s.k]==o?' on':''}">${o}</button>`).join('');
+    stage.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{d[s.k]=b.textContent;i++;render()});$('next').style.display='none';return}
+  $('next').style.display='';
+  if(s.k=='nom')stage.innerHTML=`<label class="q" for="p">${s.q}</label><input id="p" type="text" placeholder="Prénom" autocomplete="given-name" value="${esc(d.prenom)}"><input id="n" type="text" placeholder="Nom" autocomplete="family-name" value="${esc(d.nomf)}">`;
+  else if(s.k=='contact')stage.innerHTML=`<label class="q">${s.q}</label><input type="email" id="email" placeholder="E-mail" autocomplete="email" value="${esc(d.email)}"><input type="tel" id="tel" placeholder="Téléphone (WhatsApp)" autocomplete="tel" value="${esc(d.tel)}"><label class="chk"><input type="checkbox" id="ok"><span>J'accepte que mes données soient utilisées pour me recontacter au sujet du coaching, selon la politique de confidentialité.</span></label>`;
+  else stage.innerHTML=`<label class="q" for="in">${s.q}</label><input id="in" type="${s.t}" placeholder="${s.ph}" value="${esc(d[s.k])}">`;
+  const f=stage.querySelector('input');if(f)setTimeout(()=>f.focus(),60);
+}
+function done(){
+  $('nav').style.display='none';$('stepl').textContent='C\'est presque fini';
+  const u=CAL+'?name='+encodeURIComponent(d.prenom+' '+d.nomf)+'&email='+encodeURIComponent(d.email)+'&a1='+encodeURIComponent(`Âge: ${d.age} | Métier: ${d.metier} | Objectif: ${d.objectif} | Blocage: ${d.blocage} | Tél: ${d.tel}`);
+  stage.innerHTML=`<label class="q">Merci ${d.prenom} ! 🙌</label><p class="t">Dernière étape : choisis le créneau de ton appel gratuit. Tes informations sont déjà remplies.</p><a class="btn" href="${u}" target="_blank" rel="noopener">→ Vers le calendrier</a>`;
+}
+function reject(){$('nav').style.display='none';stage.innerHTML=`<label class="q">Merci pour ton intérêt !</label><p class="t">Le coaching 1:1 est réservé aux personnes de 21 ans et plus. Tes données n'ont pas été enregistrées. Retrouve plein de conseils gratuits sur mon Instagram.</p><a class="btn" href="${IG}">@nutritionybruno</a>`;}
+$('f').addEventListener('submit',e=>{
+  e.preventDefault();if(e.target.website.value)return;const s=S[i];
+  if(s.k=='nom'){const p=$('p').value.trim(),n=$('n').value.trim();if(!p){err.textContent='Entre ton prénom.';return}d.prenom=p;d.nomf=n}
+  else if(s.k=='contact'){d.email=$('email').value.trim();d.tel=$('tel').value.trim();
+    if(!/^\S+@\S+\.\S+$/.test(d.email)){err.textContent='Entre un e-mail valide.';return}
+    if(d.tel.replace(/\D/g,'').length<8){err.textContent='Entre un numéro valide.';return}
+    if(!$('ok').checked){err.textContent='Merci d\'accepter la politique de confidentialité.';return}
+    done();return}
+  else{const v=$('in').value.trim();if(!v){err.textContent='Ce champ est requis.';return}
+    if(s.k=='age'){const a=+v;if(!a||a<10||a>99){err.textContent='Entre un âge valide.';return}if(a<21){reject();return}}
+    d[s.k]=v}
+  i++;render();
+});
+$('back').onclick=()=>{if(i>0){i--;render()}};
+const open=()=>{i=0;render();modal.classList.add('open')};
+const close=()=>modal.classList.remove('open');
+document.querySelectorAll('a[href="#apply"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();open()}));
+if(location.hash=='#apply')open();
+$('close').onclick=close;modal.addEventListener('click',e=>{if(e.target===modal)close()});
+document.addEventListener('keydown',e=>{if(e.key=='Escape')close()});
+
+let seen=null;try{seen=localStorage.getItem('ooo-cookie')}catch(e){}
+if(!seen)$('cookie').classList.add('show');
+const ck=v=>{try{localStorage.setItem('ooo-cookie',v)}catch(e){}$('cookie').classList.remove('show')};
+$('cYes').onclick=()=>ck('yes');$('cNo').onclick=()=>ck('no');
+}
+</script>
+</body>
+</html>
