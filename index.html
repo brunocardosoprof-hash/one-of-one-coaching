@@ -321,6 +321,28 @@ footer p{margin:6px 0}
  .sbar a{background:var(--blue);color:#fff;text-decoration:none;font-weight:700;font-size:14.5px;padding:13px 16px;border-radius:12px;white-space:nowrap}
 }
 </style>
+<style id="evo-montage">
+/* Montage évolutif : une seule bande alignée */
+.trio{gap:0!important;border-radius:26px;box-shadow:0 30px 60px -24px rgba(14,23,38,.45);margin-bottom:96px!important;background:#EFECE6}
+.trio figure{border-radius:0!important;box-shadow:none!important;overflow:hidden!important}
+.trio figure:first-child{border-radius:26px 0 0 26px!important}
+.trio figure:nth-child(3){border-radius:0 26px 26px 0!important}
+.trio figure+figure{border-left:3px solid var(--cream)}
+.trio img{border-radius:0!important;aspect-ratio:3/4;object-fit:cover;display:block}
+.trio figure:nth-child(1) img{filter:saturate(.75) brightness(.97)}
+.trio figure:nth-child(2) img{filter:saturate(.9)}
+.trio figure::before{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(transparent,rgba(14,23,38,.35));z-index:1;pointer-events:none}
+.trio figure:nth-child(-n+2)::after{display:none!important}
+.trio figcaption{top:auto!important;bottom:12px!important;z-index:2;background:rgba(255,255,255,.95)!important}
+.trio .evo{grid-column:1/-1;position:absolute;left:16.66%;right:16.66%;bottom:-46px;height:6px;border-radius:6px;background:linear-gradient(90deg,#B9B2A8,var(--blue));display:flex;justify-content:space-between;align-items:center}
+.trio .evo .d0,.trio .evo .d2{position:relative;font-size:13px;font-weight:800;color:var(--soft);white-space:nowrap;transform:translateX(-50%)}
+.trio .evo .d2{transform:translateX(50%);color:var(--blue)}
+.trio .evo .d0::before,.trio .evo .d2::before{content:"";position:absolute;left:50%;top:-22px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:#B9B2A8;border:3px solid var(--cream)}
+.trio .evo .d2::before{background:var(--blue)}
+.trio .evo .d0,.trio .evo .d2{top:22px}
+.trio .evo .big40{position:static!important;transform:none!important;font-size:clamp(22px,3.4vw,34px)!important;padding:8px 22px!important}
+@media(max-width:780px){.trio{border-radius:18px}.trio figure:first-child{border-radius:18px 0 0 18px!important}.trio figure:nth-child(3){border-radius:0 18px 18px 0!important}.trio figure+figure{border-left-width:2px}.trio figcaption{font-size:10px!important;padding:4px 8px!important;bottom:8px!important;letter-spacing:.3px}.trio .evo{bottom:-40px}.trio .evo .d0,.trio .evo .d2{font-size:12px}.trio{margin-bottom:84px!important}}
+</style>
 </head>
 <body>
 <!-- 1. HERO -->
@@ -434,7 +456,7 @@ footer p{margin:6px 0}
       <figure><img src="img/bruno-avant.jpg" alt="Bruno avant, en obésité"><figcaption>Avant</figcaption></figure>
       <figure><img src="img/bruno-pendant.jpg" alt="Bruno pendant sa transformation"><figcaption>Pendant</figcaption></figure>
       <figure><img src="img/bruno-apres.jpg" alt="Bruno aujourd'hui"><figcaption>Aujourd'hui</figcaption></figure>
-      <span class="big40">−40 kg</span>
+      <div class="evo"><span class="d0">120 kg</span><span class="big40">−40 kg</span><span class="d2">80 kg</span></div>
     </div>
     <div class="textcard" style="text-align:left">
       <p>Je m'appelle Bruno, je suis <b>nutritionniste diplômé (TCMA Genève)</b> et coach en ligne. Le sport et la nutrition sont aujourd'hui au centre de ma vie. Mais ça n'a pas toujours été le cas.</p>
