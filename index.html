@@ -279,6 +279,48 @@ footer p{margin:6px 0}
 @media(max-width:560px){section{padding:56px 0}.btn{width:100%;padding:18px 24px;font-size:17px}.proc{grid-template-columns:minmax(0,1fr)}.pc{border-right:0!important;border-bottom:1px solid var(--border)}.stats b{font-size:26px}.stats span{font-size:12px}.cookie{flex-wrap:wrap;padding:18px}.cookie p{flex:1 1 100%}.cb{flex:1}.pitem{font-size:16px}}
 @media(prefers-reduced-motion:reduce){.track{animation:none}html{scroll-behavior:auto}}
 </style>
+<style id="mobile-pro">
+/* ===== Optimisation mobile ===== */
+.sbar{display:none}
+@media(max-width:560px){
+ section{padding:48px 0}
+ h1{font-size:42px;letter-spacing:-1.5px}
+ h2{font-size:30px}
+ .hero{padding-top:18px}
+ .logo{margin-bottom:16px;gap:10px}.logo .one{width:42px;height:42px}.logo b{font-size:21px}.logo small{font-size:9px;letter-spacing:4px}
+ .hgrid{display:flex!important;flex-direction:column;gap:0}
+ .hgrid>div:first-child{display:contents}
+ .chips{order:1;flex-wrap:nowrap;gap:6px;margin-bottom:14px;justify-content:center}
+ .chip{font-size:11.5px!important;padding:6px 10px!important;white-space:nowrap}
+ .hero h1{order:2;margin:0 0 18px}
+ .coach{order:3;max-width:none!important;margin:0 0 22px!important}
+ .coach .ph{aspect-ratio:auto;height:min(54vh,460px)}
+ .coach .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+ .hero p.lead{order:4;font-size:17px!important;margin-bottom:20px}
+ .hero .btn{order:5}
+ .spots{order:6;margin-top:10px}
+ .stats{margin-top:28px;padding:18px 0}
+ .stats b{font-size:28px!important;white-space:nowrap;letter-spacing:-.5px}
+ .stats span{font-size:11.5px;line-height:1.3;display:block;margin-top:4px}
+ .stats b span{display:inline;font-size:inherit;margin:0}
+ .auth{gap:12px}
+ .revs{flex-wrap:nowrap;justify-content:flex-start;padding:8px 20px 20px;scroll-padding-left:20px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+ .revs::-webkit-scrollbar{display:none}
+ .rv{flex:0 0 82%}
+ .pc{display:grid;grid-template-columns:44px 1fr;column-gap:14px;padding:22px 4px}
+ .pc .ic{grid-row:span 2;width:44px;height:44px;margin:0}
+ .pc h3{font-size:18px;margin:0;align-self:center}
+ .pc p{grid-column:2;font-size:14.5px;margin-top:6px}
+ .textcard p,.mcard p{font-size:16px}
+ details summary{font-size:15.5px}
+ body{padding-bottom:84px}
+ .sbar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;align-items:center;gap:10px;padding:10px 10px 10px 16px;background:rgba(25,25,25,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:18px;box-shadow:0 14px 40px rgba(0,0,0,.35);transform:translateY(140%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+ .sbar.on{transform:none}
+ .sbar small{flex:1;color:#fff;font-size:12.5px;line-height:1.3}
+ .sbar small b{display:block;font-size:14px}
+ .sbar a{background:var(--blue);color:#fff;text-decoration:none;font-weight:700;font-size:14.5px;padding:13px 16px;border-radius:12px;white-space:nowrap}
+}
+</style>
 </head>
 <body>
 <!-- 1. HERO -->
@@ -288,7 +330,7 @@ footer p{margin:6px 0}
     <div class="hgrid">
       <div>
         <div class="chips"><span class="chip"><span class="d"></span>Vu à la TV · RTS</span><span class="chip">🎓 Nutritionniste diplômé en Suisse</span></div>
-        <h1>En 16 semaines<br><span class="blue">vers ton corps de rêve</span></h1>
+        <h1>En 6 mois<br><span class="blue">vers ton corps de rêve</span></h1>
         <p class="lead">De 120 kg à des abdos : je l'ai vécu. Aujourd'hui nutritionniste diplômé, je t'amène physiquement et mentalement dans la meilleure forme de ta vie.</p>
         <a class="btn" href="#apply">→ Réserver mon appel gratuit</a>
         <span class="spots"><i></i>Plus que <b>4</b> places disponibles en décembre</span>
@@ -431,7 +473,7 @@ footer p{margin:6px 0}
     <p class="sub">Chacun part d'un point différent. On choisit ensemble la formule idéale pendant ton appel gratuit.</p>
     <div class="packs">
       <div class="pack"><h3>Formule Essentielle</h3><p class="pr">Accompagnement mensuel · prix lors de l'appel</p><ul><li>Plan nutrition personnalisé</li><li>Programme d'entraînement</li><li>Accès à l'app + recettes</li><li>Check-in de suivi</li></ul><a class="btn" href="#apply">En parler</a></div>
-      <div class="pack best"><span class="badge">LE PLUS CHOISI</span><h3>Méthode One of One · 16 semaines</h3><p class="pr">Coaching 1:1 complet · prix lors de l'appel</p><ul><li>Analyse complète et objectifs</li><li>Nutrition + training sur mesure</li><li>Chat direct avec moi au quotidien</li><li>Appels vidéo 1:1 réguliers</li><li>Check-ins hebdo et ajustements</li></ul><a class="btn" href="#apply">→ Réserver mon appel</a></div>
+      <div class="pack best"><span class="badge">LE PLUS CHOISI</span><h3>Méthode One of One · 6 mois</h3><p class="pr">Coaching 1:1 complet · prix lors de l'appel</p><ul><li>Analyse complète et objectifs</li><li>Nutrition + training sur mesure</li><li>Chat direct avec moi au quotidien</li><li>Appels vidéo 1:1 réguliers</li><li>Check-ins hebdo et ajustements</li></ul><a class="btn" href="#apply">→ Réserver mon appel</a></div>
     </div>
   </div>
 </section>
@@ -497,6 +539,7 @@ footer p{margin:6px 0}
 
 <div class="cookie" id="cookie"><p>Ce site n'utilise pas de cookies publicitaires. Il garde seulement ton choix en mémoire dans ton navigateur. En savoir plus : <a href="confidentialite.html">politique de confidentialité</a>.</p><button class="cb" id="cNo">Refuser</button><button class="cb y" id="cYes">Accepter</button></div>
 
+<div class="sbar" id="sbar"><small><b>Appel gratuit</b>Plus que 4 places en décembre</small><a href="#apply">Réserver →</a></div>
 <script>
 {
 const CAL='https://calendly.com/bc-trainer/appel-de-selection-coaching';
@@ -586,6 +629,10 @@ if(!seen)$('cookie').classList.add('show');
 const ck=v=>{try{localStorage.setItem('ooo-cookie',v)}catch(e){}$('cookie').classList.remove('show')};
 $('cYes').onclick=()=>ck('yes');$('cNo').onclick=()=>ck('no');
 }
+
+(function(){var b=document.getElementById('sbar'),h=document.querySelector('.hero .btn'),f=document.querySelector('.final');
+function u(){var y=h.getBoundingClientRect().bottom<0,z=f&&f.getBoundingClientRect().top<innerHeight;b.classList.toggle('on',y&&!z)}
+addEventListener('scroll',u,{passive:true});u()})();
 </script>
 </body>
 </html>
