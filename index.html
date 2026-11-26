@@ -333,7 +333,8 @@ footer p{margin:6px 0}
 .trio figure:nth-child(2) img{filter:saturate(.9)}
 .trio figure::before{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(transparent,rgba(14,23,38,.35));z-index:1;pointer-events:none}
 .trio figure:nth-child(-n+2)::after{display:none!important}
-.trio figcaption{top:auto!important;bottom:12px!important;z-index:2;background:rgba(255,255,255,.95)!important}
+.trio figcaption{top:12px!important;bottom:auto!important;left:12px!important;transform:none!important;z-index:2;background:rgba(255,255,255,.95)!important}
+.trio figure:nth-child(3)::before{display:none}
 .trio .evo{grid-column:1/-1;position:absolute;left:16.66%;right:16.66%;bottom:-46px;height:6px;border-radius:6px;background:linear-gradient(90deg,#B9B2A8,var(--blue));display:flex;justify-content:space-between;align-items:center}
 .trio .evo .d0,.trio .evo .d2{position:relative;font-size:13px;font-weight:800;color:var(--soft);white-space:nowrap;transform:translateX(-50%)}
 .trio .evo .d2{transform:translateX(50%);color:var(--blue)}
@@ -341,7 +342,7 @@ footer p{margin:6px 0}
 .trio .evo .d2::before{background:var(--blue)}
 .trio .evo .d0,.trio .evo .d2{top:22px}
 .trio .evo .big40{position:static!important;transform:none!important;font-size:clamp(22px,3.4vw,34px)!important;padding:8px 22px!important}
-@media(max-width:780px){.trio{border-radius:18px}.trio figure:first-child{border-radius:18px 0 0 18px!important}.trio figure:nth-child(3){border-radius:0 18px 18px 0!important}.trio figure+figure{border-left-width:2px}.trio figcaption{font-size:10px!important;padding:4px 8px!important;bottom:8px!important;letter-spacing:.3px}.trio .evo{bottom:-40px}.trio .evo .d0,.trio .evo .d2{font-size:12px}.trio{margin-bottom:84px!important}}
+@media(max-width:780px){.trio{border-radius:18px}.trio figure:first-child{border-radius:18px 0 0 18px!important}.trio figure:nth-child(3){border-radius:0 18px 18px 0!important}.trio figure+figure{border-left-width:2px}.trio figcaption{font-size:8.5px!important;padding:3px 6px!important;top:6px!important;left:6px!important;letter-spacing:.3px}.trio .evo{bottom:-40px}.trio .evo .d0,.trio .evo .d2{font-size:12px}.trio{margin-bottom:84px!important}}
 </style>
 </head>
 <body>
